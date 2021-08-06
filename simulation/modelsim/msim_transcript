@@ -1,0 +1,100 @@
+# Reading pref.tcl
+# do Elevator_Controller_Systems_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+G:/6th\ Semester/HDL/Mini\ project/Elevator_Controller_Systems {G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:51:51 on May 13,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems" G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v 
+# -- Compiling module Elevator_Controller_Systems
+# -- Compiling module controller
+# -- Compiling module datapath
+# -- Compiling module Elevator_Timer_TMR2
+# -- Compiling module Door_delay_TMR1
+# -- Compiling module clockDivider
+# -- Compiling module debounce
+# -- Compiling module tb_Elevator_Controller_Systems
+# 
+# Top level modules:
+# 	debounce
+# 	tb_Elevator_Controller_Systems
+# End time: 12:51:52 on May 13,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vsim -gui -l msim_transcript work.tb_Elevator_Controller_Systems
+# vsim -gui -l msim_transcript work.tb_Elevator_Controller_Systems 
+# Start time: 12:52:22 on May 13,2021
+# Loading work.tb_Elevator_Controller_Systems
+# Loading work.Elevator_Controller_Systems
+# Loading work.datapath
+# Loading work.controller
+# Loading work.Door_delay_TMR1
+# Loading work.Elevator_Timer_TMR2
+# Loading work.clockDivider
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (1) for port 'segout'. The port definition is at: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v(233).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_Elevator_Controller_Systems/UUT/I2 File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 14
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'I1'.  Expected 27, found 26.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_Elevator_Controller_Systems/UUT/I1 File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 15
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (1) for port 'segout'. The port definition is at: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v(23).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_Elevator_Controller_Systems/UUT/I1 File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 15
+# ** Warning: (vsim-3722) G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v(15): [TFMPC] - Missing connection for port 'Flr4_down'.
+add wave -position end  sim:/tb_Elevator_Controller_Systems/sevseg
+add wave -position end  sim:/tb_Elevator_Controller_Systems/rest
+add wave -position end  sim:/tb_Elevator_Controller_Systems/reset
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Led4
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Led3
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Led2
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Led1
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr4_down
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr4
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr3_up
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr3_down
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr3
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr2_up
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr2_down
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr2
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr1_up
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Flr1
+add wave -position end  sim:/tb_Elevator_Controller_Systems/Door
+add wave -position end  sim:/tb_Elevator_Controller_Systems/direction
+add wave -position end  sim:/tb_Elevator_Controller_Systems/clock
+add wave -position end  sim:/tb_Elevator_Controller_Systems/B
+add wave -position end  sim:/tb_Elevator_Controller_Systems/A
+run
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# End time: 13:05:32 on May 13,2021, Elapsed time: 0:13:10
+# Errors: 0, Warnings: 4

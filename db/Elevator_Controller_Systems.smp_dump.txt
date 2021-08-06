@@ -1,0 +1,11 @@
+
+State Machine - |Elevator_Controller_Systems|controller:I1|CurrentState
+Name CurrentState.Floor_04_open CurrentState.Floor_04_closed CurrentState.Floor_03_open CurrentState.Floor_03_closed CurrentState.Floor_02_open CurrentState.Floor_02_closed CurrentState.Floor_01_open CurrentState.Floor_01_closed 
+CurrentState.Floor_01_closed 0 0 0 0 0 0 0 0 
+CurrentState.Floor_01_open 0 0 0 0 0 0 1 1 
+CurrentState.Floor_02_closed 0 0 0 0 0 1 0 1 
+CurrentState.Floor_02_open 0 0 0 0 1 0 0 1 
+CurrentState.Floor_03_closed 0 0 0 1 0 0 0 1 
+CurrentState.Floor_03_open 0 0 1 0 0 0 0 1 
+CurrentState.Floor_04_closed 0 1 0 0 0 0 0 1 
+CurrentState.Floor_04_open 1 0 0 0 0 0 0 1 

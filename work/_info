@@ -1,0 +1,146 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dG:/6th Semester/HDL/Mini project/Elevator_Controller_Systems
+vcontroller
+Z1 !s110 1620731514
+!i10b 1
+!s100 E=oiLbF;OgdolLjGd?bT91
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I[Jb_ocJD@]6Y_YAa>RFLN1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1620731488
+Z5 8./Elevator_Controller_Systems.v
+Z6 F./Elevator_Controller_Systems.v
+!i122 15
+L0 17 107
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1620731514.000000
+Z9 !s107 ./Elevator_Controller_Systems.v|
+Z10 !s90 -reportprogress|300|./Elevator_Controller_Systems.v|
+!i113 1
+Z11 tCvgOpt 0
+vdatapath
+R1
+!i10b 1
+!s100 I5<:fGCKZa[Ra_j1F^FI<3
+R2
+IhSKhHV^Q5QcTVCXi>fg@i0
+R3
+R0
+R4
+R5
+R6
+!i122 15
+L0 127 33
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vElevator_Controller_Systems
+R1
+!i10b 1
+!s100 @MCmN:Ik:M4bYHjUNlbH:1
+R2
+IiJ1<7<gbHn^R?og_ceaWl3
+R3
+R0
+R4
+R5
+R6
+!i122 15
+L0 1 14
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+n@elevator_@controller_@systems
+vslowclock
+!s110 1620721502
+!i10b 1
+!s100 3chfVYS4iM9;7oE[L1;d:3
+R2
+IRmYQ?n><=3]PA37VnOJz[1
+R3
+R0
+w1620721218
+R5
+R6
+!i122 12
+L0 153 29
+R7
+r1
+!s85 0
+31
+!s108 1620721502.000000
+R9
+R10
+!i113 1
+R11
+vtb_Elevator_Controller_System
+!s110 1620709987
+!i10b 1
+!s100 6Sj8:Oj^n>ilF2]nLX^8X2
+R2
+IS>jE9z5?Q2IWZ1f=]VFlF2
+R3
+R0
+w1620709822
+R5
+R6
+!i122 0
+L0 183 29
+R7
+r1
+!s85 0
+31
+!s108 1620709987.000000
+R9
+R10
+!i113 1
+R11
+ntb_@elevator_@controller_@system
+vtb_Elevator_Controller_Systems
+R1
+!i10b 1
+!s100 1zHLK;?W5;i;cQ^?hXQ`C2
+R2
+I[7CiTf24kW0>:?4dW;nbR3
+R3
+R0
+R4
+R5
+R6
+!i122 15
+L0 162 33
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+ntb_@elevator_@controller_@systems

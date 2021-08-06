@@ -1,0 +1,208 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dG:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/simulation/modelsim
+vclockDivider
+Z1 !s110 1620890512
+!i10b 1
+!s100 W3LLh6K4YTzJlanRJZ]UD2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IgkQmeZoObZ:]Uf2`c@2S>2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1620890464
+Z5 8G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v
+Z6 FG:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v
+!i122 0
+L0 340 31
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1620890511.000000
+!s107 G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems|G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work {+incdir+G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems}
+Z12 tCvgOpt 0
+nclock@divider
+vcontroller
+R1
+!i10b 1
+!s100 L[]PI;ALg[bm>XDimiKX01
+R2
+IS3XR;nEcQ5Q1OWNX7=omX0
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 23 207
+R7
+r1
+!s85 0
+31
+R8
+Z13 !s107 G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v|
+R9
+!i113 1
+R10
+R11
+R12
+vdatapath
+R1
+!i10b 1
+!s100 @=jO6nJP4P8_:j?2F2g^e0
+R2
+I1=Go9:T1X2zEOO1`d5aRE3
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 233 28
+R7
+r1
+!s85 0
+31
+R8
+R13
+R9
+!i113 1
+R10
+R11
+R12
+vdebounce
+R1
+!i10b 1
+!s100 Yl>T80XQS8oYk`:dz7`OE0
+R2
+I^Qb:O4n=4k0VA83m2eQ6<3
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 375 25
+R7
+r1
+!s85 0
+31
+R8
+R13
+R9
+!i113 1
+R10
+R11
+R12
+vDoor_delay_TMR1
+R1
+!i10b 1
+!s100 g4LH0cdA9Z5PCXBdbDU;U3
+R2
+IF8RYjR;@Ma33E];I@lPMd1
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 303 36
+R7
+r1
+!s85 0
+31
+R8
+R13
+R9
+!i113 1
+R10
+R11
+R12
+n@door_delay_@t@m@r1
+vElevator_Controller_Systems
+R1
+!i10b 1
+!s100 L5?WXA4>Xlo8S4;Zc=iOi1
+R2
+Ia6ec`;>GJ<362FmaeiLlc2
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 3 18
+R7
+r1
+!s85 0
+31
+R8
+R13
+R9
+!i113 1
+R10
+R11
+R12
+n@elevator_@controller_@systems
+vElevator_Timer_TMR2
+R1
+!i10b 1
+!s100 iYOAli0@[F]Z>6aCF`Vb93
+R2
+ILjV5ef:3N0J]_fEaR[CUo3
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 266 36
+R7
+r1
+!s85 0
+31
+R8
+R13
+R9
+!i113 1
+R10
+R11
+R12
+n@elevator_@timer_@t@m@r2
+vtb_Elevator_Controller_Systems
+R1
+!i10b 1
+!s100 Hc2e5GojW8G<OXc`8<FT21
+R2
+IHU;7HMzfQU`406b5DX]aJ2
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 403 75
+R7
+r1
+!s85 0
+31
+R8
+R13
+R9
+!i113 1
+R10
+R11
+R12
+ntb_@elevator_@controller_@systems

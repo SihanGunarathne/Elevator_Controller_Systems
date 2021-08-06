@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Led1",
+					"strict" : false
+				},
+				{
+					"name" : "Led2",
+					"strict" : false
+				},
+				{
+					"name" : "Led3",
+					"strict" : false
+				},
+				{
+					"name" : "Led4",
+					"strict" : false
+				},
+				{
+					"name" : "sevseg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Door",
+					"strict" : false
+				},
+				{
+					"name" : "direction",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "Flr1_up",
+					"strict" : false
+				},
+				{
+					"name" : "Flr1",
+					"strict" : false
+				},
+				{
+					"name" : "Flr2_up",
+					"strict" : false
+				},
+				{
+					"name" : "Flr2_down",
+					"strict" : false
+				},
+				{
+					"name" : "Flr4_down",
+					"strict" : false
+				},
+				{
+					"name" : "Flr3_up",
+					"strict" : false
+				},
+				{
+					"name" : "Flr3_down",
+					"strict" : false
+				},
+				{
+					"name" : "Flr4",
+					"strict" : false
+				},
+				{
+					"name" : "B",
+					"strict" : false
+				},
+				{
+					"name" : "Flr2",
+					"strict" : false
+				},
+				{
+					"name" : "Flr3",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

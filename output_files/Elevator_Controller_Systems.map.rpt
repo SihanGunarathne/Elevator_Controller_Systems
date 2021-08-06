@@ -1,0 +1,478 @@
+Analysis & Synthesis report for Elevator_Controller_Systems
+Thu May 13 16:56:18 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Elevator_Controller_Systems|controller:I1|CurrentState
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: controller:I1
+ 14. Port Connectivity Checks: "controller:I1"
+ 15. Port Connectivity Checks: "datapath:I2"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu May 13 16:56:17 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; Elevator_Controller_Systems                 ;
+; Top-level Entity Name           ; Elevator_Controller_Systems                 ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 9                                           ;
+; Total pins                      ; 28                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                               ;
++---------------------------------------------------------------------------------+-----------------------------+-----------------------------+
+; Option                                                                          ; Setting                     ; Default Value               ;
++---------------------------------------------------------------------------------+-----------------------------+-----------------------------+
+; Device                                                                          ; 5CGXFC5C6F27C7              ;                             ;
+; Top-level entity name                                                           ; Elevator_Controller_Systems ; Elevator_Controller_Systems ;
+; Family name                                                                     ; Cyclone V                   ; Cyclone V                   ;
+; Use smart compilation                                                           ; Off                         ; Off                         ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                          ; On                          ;
+; Enable compact report table                                                     ; Off                         ; Off                         ;
+; Restructure Multiplexers                                                        ; Auto                        ; Auto                        ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                         ; Off                         ;
+; Create Debugging Nodes for IP Cores                                             ; Off                         ; Off                         ;
+; Preserve fewer node names                                                       ; On                          ; On                          ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                      ; Enable                      ;
+; Verilog Version                                                                 ; Verilog_2001                ; Verilog_2001                ;
+; VHDL Version                                                                    ; VHDL_1993                   ; VHDL_1993                   ;
+; State Machine Processing                                                        ; Auto                        ; Auto                        ;
+; Safe State Machine                                                              ; Off                         ; Off                         ;
+; Extract Verilog State Machines                                                  ; On                          ; On                          ;
+; Extract VHDL State Machines                                                     ; On                          ; On                          ;
+; Ignore Verilog initial constructs                                               ; Off                         ; Off                         ;
+; Iteration limit for constant Verilog loops                                      ; 5000                        ; 5000                        ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                         ; 250                         ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                          ; On                          ;
+; Infer RAMs from Raw Logic                                                       ; On                          ; On                          ;
+; Parallel Synthesis                                                              ; On                          ; On                          ;
+; DSP Block Balancing                                                             ; Auto                        ; Auto                        ;
+; NOT Gate Push-Back                                                              ; On                          ; On                          ;
+; Power-Up Don't Care                                                             ; On                          ; On                          ;
+; Remove Redundant Logic Cells                                                    ; Off                         ; Off                         ;
+; Remove Duplicate Registers                                                      ; On                          ; On                          ;
+; Ignore CARRY Buffers                                                            ; Off                         ; Off                         ;
+; Ignore CASCADE Buffers                                                          ; Off                         ; Off                         ;
+; Ignore GLOBAL Buffers                                                           ; Off                         ; Off                         ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                         ; Off                         ;
+; Ignore LCELL Buffers                                                            ; Off                         ; Off                         ;
+; Ignore SOFT Buffers                                                             ; On                          ; On                          ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                         ; Off                         ;
+; Optimization Technique                                                          ; Balanced                    ; Balanced                    ;
+; Carry Chain Length                                                              ; 70                          ; 70                          ;
+; Auto Carry Chains                                                               ; On                          ; On                          ;
+; Auto Open-Drain Pins                                                            ; On                          ; On                          ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                         ; Off                         ;
+; Auto ROM Replacement                                                            ; On                          ; On                          ;
+; Auto RAM Replacement                                                            ; On                          ; On                          ;
+; Auto DSP Block Replacement                                                      ; On                          ; On                          ;
+; Auto Shift Register Replacement                                                 ; Auto                        ; Auto                        ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                        ; Auto                        ;
+; Auto Clock Enable Replacement                                                   ; On                          ; On                          ;
+; Strict RAM Replacement                                                          ; Off                         ; Off                         ;
+; Allow Synchronous Control Signals                                               ; On                          ; On                          ;
+; Force Use of Synchronous Clear Signals                                          ; Off                         ; Off                         ;
+; Auto Resource Sharing                                                           ; Off                         ; Off                         ;
+; Allow Any RAM Size For Recognition                                              ; Off                         ; Off                         ;
+; Allow Any ROM Size For Recognition                                              ; Off                         ; Off                         ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                         ; Off                         ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                          ; On                          ;
+; Ignore translate_off and synthesis_off directives                               ; Off                         ; Off                         ;
+; Timing-Driven Synthesis                                                         ; On                          ; On                          ;
+; Report Parameter Settings                                                       ; On                          ; On                          ;
+; Report Source Assignments                                                       ; On                          ; On                          ;
+; Report Connectivity Checks                                                      ; On                          ; On                          ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                         ; Off                         ;
+; Synchronization Register Chain Length                                           ; 3                           ; 3                           ;
+; Power Optimization During Synthesis                                             ; Normal compilation          ; Normal compilation          ;
+; HDL message level                                                               ; Level2                      ; Level2                      ;
+; Suppress Register Optimization Related Messages                                 ; Off                         ; Off                         ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                        ; 5000                        ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                        ; 5000                        ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                         ; 100                         ;
+; Clock MUX Protection                                                            ; On                          ; On                          ;
+; Auto Gated Clock Conversion                                                     ; Off                         ; Off                         ;
+; Block Design Naming                                                             ; Auto                        ; Auto                        ;
+; SDC constraint protection                                                       ; Off                         ; Off                         ;
+; Synthesis Effort                                                                ; Auto                        ; Auto                        ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                          ; On                          ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                         ; Off                         ;
+; Analysis & Synthesis Message Level                                              ; Medium                      ; Medium                      ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                        ; Auto                        ;
+; Resource Aware Inference For Block RAM                                          ; On                          ; On                          ;
+; Automatic Parallel Synthesis                                                    ; On                          ; On                          ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                         ; Off                         ;
++---------------------------------------------------------------------------------+-----------------------------+-----------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                             ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------+---------+
+; Elevator_Controller_Systems.v    ; yes             ; User Verilog HDL File  ; G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimate of Logic utilization (ALMs needed) ; 26         ;
+;                                             ;            ;
+; Combinational ALUT usage for logic          ; 44         ;
+;     -- 7 input functions                    ; 0          ;
+;     -- 6 input functions                    ; 6          ;
+;     -- 5 input functions                    ; 11         ;
+;     -- 4 input functions                    ; 10         ;
+;     -- <=3 input functions                  ; 17         ;
+;                                             ;            ;
+; Dedicated logic registers                   ; 9          ;
+;                                             ;            ;
+; I/O pins                                    ; 28         ;
+;                                             ;            ;
+; Total DSP Blocks                            ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; Flr1~input ;
+; Maximum fan-out                             ; 11         ;
+; Total fan-out                               ; 236        ;
+; Average fan-out                             ; 2.17       ;
++---------------------------------------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name                 ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------------+--------------+
+; |Elevator_Controller_Systems ; 44 (0)              ; 9 (0)                     ; 0                 ; 0          ; 28   ; 0            ; |Elevator_Controller_Systems               ; Elevator_Controller_Systems ; work         ;
+;    |controller:I1|           ; 44 (44)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Elevator_Controller_Systems|controller:I1 ; controller                  ; work         ;
+;    |datapath:I2|             ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Elevator_Controller_Systems|datapath:I2   ; datapath                    ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Elevator_Controller_Systems|controller:I1|CurrentState                                                                                                                                                                                                      ;
++------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+
+; Name                         ; CurrentState.Floor_04_open ; CurrentState.Floor_04_closed ; CurrentState.Floor_03_open ; CurrentState.Floor_03_closed ; CurrentState.Floor_02_open ; CurrentState.Floor_02_closed ; CurrentState.Floor_01_open ; CurrentState.Floor_01_closed ;
++------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+
+; CurrentState.Floor_01_closed ; 0                          ; 0                            ; 0                          ; 0                            ; 0                          ; 0                            ; 0                          ; 0                            ;
+; CurrentState.Floor_01_open   ; 0                          ; 0                            ; 0                          ; 0                            ; 0                          ; 0                            ; 1                          ; 1                            ;
+; CurrentState.Floor_02_closed ; 0                          ; 0                            ; 0                          ; 0                            ; 0                          ; 1                            ; 0                          ; 1                            ;
+; CurrentState.Floor_02_open   ; 0                          ; 0                            ; 0                          ; 0                            ; 1                          ; 0                            ; 0                          ; 1                            ;
+; CurrentState.Floor_03_closed ; 0                          ; 0                            ; 0                          ; 1                            ; 0                          ; 0                            ; 0                          ; 1                            ;
+; CurrentState.Floor_03_open   ; 0                          ; 0                            ; 1                          ; 0                            ; 0                          ; 0                            ; 0                          ; 1                            ;
+; CurrentState.Floor_04_closed ; 0                          ; 1                            ; 0                          ; 0                            ; 0                          ; 0                            ; 0                          ; 1                            ;
+; CurrentState.Floor_04_open   ; 1                          ; 0                            ; 0                          ; 0                            ; 0                          ; 0                            ; 0                          ; 1                            ;
++------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+----------------------------+------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                    ;
++----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal      ; Free of Timing Hazards ;
++----------------------------------------------------+--------------------------+------------------------+
+; controller:I1|direction                            ; controller:I1|WideOr1    ; yes                    ;
+; controller:I1|NextState.Floor_01_closed_1797       ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_01_open_1677         ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_02_closed_1557       ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_02_open_1437         ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_03_closed_1317       ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_03_open_1197         ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_04_closed_1077       ; controller:I1|Selector13 ; yes                    ;
+; controller:I1|NextState.Floor_04_open_957          ; controller:I1|Selector13 ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                          ;                        ;
++----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; datapath:I2|sevseg[0..5]               ; Stuck at GND due to stuck port data_in ;
+; controller:I1|CurrentState~4           ; Lost fanout                            ;
+; controller:I1|CurrentState~5           ; Lost fanout                            ;
+; controller:I1|CurrentState~6           ; Lost fanout                            ;
+; controller:I1|CurrentState~7           ; Lost fanout                            ;
+; Total Number of Removed Registers = 10 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 9     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Elevator_Controller_Systems|controller:I1|NextState.Floor_04_closed ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controller:I1 ;
++-----------------+-------+----------------------------------+
+; Parameter Name  ; Value ; Type                             ;
++-----------------+-------+----------------------------------+
+; Floor_01_open   ; 0010  ; Unsigned Binary                  ;
+; Floor_01_closed ; 0001  ; Unsigned Binary                  ;
+; Floor_02_open   ; 0110  ; Unsigned Binary                  ;
+; Floor_02_closed ; 0101  ; Unsigned Binary                  ;
+; Floor_03_open   ; 1010  ; Unsigned Binary                  ;
+; Floor_03_closed ; 1001  ; Unsigned Binary                  ;
+; Floor_04_open   ; 1110  ; Unsigned Binary                  ;
+; Floor_04_closed ; 1101  ; Unsigned Binary                  ;
++-----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controller:I1"                                                                                                              ;
++--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                   ;
++--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; segout ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "segout[0..5]" have no fanouts ;
++--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:I2"                                                                                                                                    ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; segout ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (7 bits) it drives.  Extra input bit(s) "segout[0..5]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 9                           ;
+;     CLR               ; 9                           ;
+; arriav_lcell_comb     ; 47                          ;
+;     normal            ; 47                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 11                          ;
+;         4 data inputs ; 10                          ;
+;         5 data inputs ; 11                          ;
+;         6 data inputs ; 6                           ;
+; boundary_port         ; 28                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.81                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Thu May 13 16:55:59 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Elevator_Controller_Systems -c Elevator_Controller_Systems
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning (10238): Verilog Module Declaration warning at Elevator_Controller_Systems.v(29): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "controller" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 29
+Warning (10463): Verilog HDL Declaration warning at Elevator_Controller_Systems.v(384): "new" is SystemVerilog-2005 keyword File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 384
+Info (12021): Found 8 design units, including 8 entities, in source file elevator_controller_systems.v
+    Info (12023): Found entity 1: Elevator_Controller_Systems File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 3
+    Info (12023): Found entity 2: controller File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 29
+    Info (12023): Found entity 3: datapath File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 237
+    Info (12023): Found entity 4: Elevator_Timer_TMR2 File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 270
+    Info (12023): Found entity 5: Door_delay_TMR1 File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 306
+    Info (12023): Found entity 6: clockDivider File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 343
+    Info (12023): Found entity 7: debounce File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 378
+    Info (12023): Found entity 8: tb_Elevator_Controller_Systems File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 406
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(15): created implicit net for "segout" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 15
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(17): created implicit net for "start_tmr2" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(17): created implicit net for "start_tmr1" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(17): created implicit net for "expired2" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(17): created implicit net for "expired1" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(20): created implicit net for "clock_out" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at Elevator_Controller_Systems.v(24): created implicit net for "rst" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 24
+Info (12127): Elaborating entity "Elevator_Controller_Systems" for the top level hierarchy
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:I2" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 15
+Info (12128): Elaborating entity "controller" for hierarchy "controller:I1" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 18
+Warning (10240): Verilog HDL Always Construct warning at Elevator_Controller_Systems.v(59): inferring latch(es) for variable "NextState", which holds its previous value in one or more paths through the always construct File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at Elevator_Controller_Systems.v(59): inferring latch(es) for variable "start_tmr1", which holds its previous value in one or more paths through the always construct File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at Elevator_Controller_Systems.v(59): inferring latch(es) for variable "rest", which holds its previous value in one or more paths through the always construct File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at Elevator_Controller_Systems.v(59): inferring latch(es) for variable "start_tmr2", which holds its previous value in one or more paths through the always construct File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at Elevator_Controller_Systems.v(59): inferring latch(es) for variable "direction", which holds its previous value in one or more paths through the always construct File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at Elevator_Controller_Systems.v(225): inferring latch(es) for variable "segout", which holds its previous value in one or more paths through the always construct File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 225
+Info (10041): Inferred latch for "segout[6]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "segout[5]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "segout[4]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "segout[3]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "segout[2]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "segout[1]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "segout[0]" at Elevator_Controller_Systems.v(229) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 229
+Info (10041): Inferred latch for "direction" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "start_tmr2" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "rest" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "start_tmr1" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_04_open" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_04_closed" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_03_open" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_03_closed" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_02_open" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_02_closed" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_01_open" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (10041): Inferred latch for "NextState.Floor_01_closed" at Elevator_Controller_Systems.v(59) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Info (12128): Elaborating entity "Door_delay_TMR1" for hierarchy "Door_delay_TMR1:TMR1" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 20
+Warning (10230): Verilog HDL assignment warning at Elevator_Controller_Systems.v(331): truncated value with size 32 to match size of target (4) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 331
+Info (12128): Elaborating entity "Elevator_Timer_TMR2" for hierarchy "Elevator_Timer_TMR2:TMR2" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 22
+Warning (10230): Verilog HDL assignment warning at Elevator_Controller_Systems.v(294): truncated value with size 32 to match size of target (7) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 294
+Info (12128): Elaborating entity "clockDivider" for hierarchy "clockDivider:D2" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 24
+Warning (10230): Verilog HDL assignment warning at Elevator_Controller_Systems.v(363): truncated value with size 32 to match size of target (9) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 363
+Warning (10230): Verilog HDL assignment warning at Elevator_Controller_Systems.v(368): truncated value with size 32 to match size of target (9) File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 368
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch controller:I1|NextState.Floor_01_closed_1797 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Flr3_up File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Warning (13012): Latch controller:I1|NextState.Floor_01_open_1677 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Flr2_up File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Warning (13012): Latch controller:I1|NextState.Floor_02_closed_1557 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Flr4_down File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Warning (13012): Latch controller:I1|NextState.Floor_02_open_1437 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Flr1_up File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Warning (13012): Latch controller:I1|NextState.Floor_03_closed_1317 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:I1|CurrentState.Floor_04_closed File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 39
+Warning (13012): Latch controller:I1|NextState.Floor_03_open_1197 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Flr1_up File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Warning (13012): Latch controller:I1|NextState.Floor_04_closed_1077 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:I1|CurrentState.Floor_04_open File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 39
+Warning (13012): Latch controller:I1|NextState.Floor_04_open_957 has unsafe behavior File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Flr1_up File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sevseg[5]" is stuck at GND File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 7
+    Warning (13410): Pin "sevseg[4]" is stuck at GND File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 7
+    Warning (13410): Pin "sevseg[3]" is stuck at GND File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 7
+    Warning (13410): Pin "sevseg[2]" is stuck at GND File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 7
+    Warning (13410): Pin "sevseg[1]" is stuck at GND File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 7
+    Warning (13410): Pin "sevseg[0]" is stuck at GND File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 7
+    Warning (13410): Pin "rest" is stuck at VCC File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 10
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/output_files/Elevator_Controller_Systems.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "A" File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 11
+Info (21057): Implemented 80 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 52 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
+    Info: Peak virtual memory: 4807 megabytes
+    Info: Processing ended: Thu May 13 16:56:18 2021
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:32
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/output_files/Elevator_Controller_Systems.map.smsg.
+
+

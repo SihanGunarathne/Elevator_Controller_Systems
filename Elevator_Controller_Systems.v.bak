@@ -1,0 +1,211 @@
+module Elevator_Controller_Systems (sevseg, segout, Led1, Led2, Led3, Led4, clock, Flr1, Flr2, Flr3, Flr4, p, r, s, q, clock_50MHz, reset, direction, rest);
+  
+ output wire Led1, Led2, Led3, Led4, clock, Flr1, Flr2, Flr3, Flr4, direction, rest;
+ input wire p, r, s, q, clock_50MHz, reset;
+ //input wire [3:0] prefix;
+ output wire [0:6] sevseg, segout;
+ 
+ 
+ controller I1 (Flr1, Flr2, Flr3, Flr4, segout, p, r, s, q, clock, reset, direction, rest, prefix);
+ datapath I2 (Led1, Led2, Led3, Led4, sevseg, Flr1, Flr2, Flr3, Flr4, segout, clock, reset);
+ slowclock I3 (clock, clock_50MHz, reset);
+ 
+ 
+endmodule
+
+
+module controller (Flr1, Flr2, Flr3, Flr4, segout, p, r, s, q, clock, reset, direction, rest, prefix);
+  
+  output reg Flr1, Flr2, Flr3, Flr4;
+  input wire p, r, s, q, clock, reset;
+  
+  output reg direction, rest;
+  
+  input wire [3:0] prefix;
+  
+  output reg [0:6] segout;
+  
+  reg [2:0] CurrentState, NextState;											// TO BE DONE STILL: (NOTES TO ME)
+																							// ADD PREFIX CODE
+																							// NEXT STATE DETERMINATION FOR ALL FLOORS
+																							// FIGURE OUT ERROR: Multi-source in Unit <controller> on signal <NextState<3>>; this signal is connected to multiple drivers.
+																							// FIGURE OUT ERROR: "toplevel_toplevel.v" line 44: Invalid use of input signal <prefix> as target.
+  parameter Floor_01 = 2'b00; 
+  parameter Floor_02 = 2'b01;
+  parameter Floor_03 = 2'b10;
+  parameter Floor_04 = 2'b11; 
+
+  
+/* SET THE PRESENT STATE EQUAL TO THE NEXT STATE */
+always @( posedge clock or negedge reset) begin
+  if( reset == 0 ) CurrentState <= Floor_01 ;
+  else CurrentState <= NextState;
+  
+  end
+  
+    
+/* DETERMINE THE NEXT STATE */													
+  always @ (CurrentState or p or r or s or q) begin
+ 
+ 
+	if ( p == 1) direction <=1;
+	if ( q == 1) direction <=0;
+ 
+   case( CurrentState )
+   Floor_01 : if( p == 1 ) NextState <= Floor_02; else rest = 1;
+   Floor_02: begin if ( direction == 1) NextState <= Floor_03;
+	if (direction == 0) NextState <= Floor_01 ; 
+	if( r == 1 && direction == 1) NextState <= Floor_04; 
+	else if (r == 1 && direction == 0) NextState <= Floor_01 ;
+	end
+	
+   Floor_03: begin if ( direction == 1) NextState <= Floor_04;
+	if (direction == 0) NextState <= Floor_02;
+	if( s == 1 && direction == 1) NextState <= Floor_04;
+	else if (s == 1 && direction == 0) NextState <= Floor_01 ;
+	end
+	
+   Floor_04: if( q == 1 ) NextState <= Floor_03;
+	else rest = 1;
+   default: NextState <= Floor_01 ;
+   
+   endcase
+	
+	
+   
+  end
+
+
+
+ 
+   /* ISSUE COMMANDS TO THE DATAPATH */
+  always @ (CurrentState or p or r or s or q) begin
+	
+   case( CurrentState )
+   Floor_01: begin Flr1 = 1; Flr2 = 0; Flr3 = 0; Flr4 = 0; end
+   Floor_02: begin Flr1 = 0; Flr2 = 1; Flr3 = 0; Flr4 = 0; end
+   Floor_03: begin Flr1 = 0; Flr2 = 0; Flr3 = 1; Flr4 = 0; end
+   Floor_04: begin Flr1 = 0; Flr2 = 0; Flr3 = 0; Flr4 = 1; end
+   default: NextState <= Floor_01 ;
+	
+   endcase
+   
+   //if (prefix == 4'b1011) Flr1 <=1; // this line compiles, but not sure if works overall
+   //if (prefix == 4'b1011) CurrentState <= Floor_01 ; // this line compiles 
+   //if
+	
+	end
+ 
+   
+ /* TELLS DATAPATH WHAT TO OUTPUT TO THE SEVSEG */
+  always @ (CurrentState or p or r or s or q) begin
+ 
+   if ( direction == 1) segout = 7'b1000001; 
+	 if ( direction == 0) segout = 7'b1000010;
+	 if ( rest == 1) segout = 7'b1111110;
+	 //if ( Flr1 == 1 &&) segout = 7'b
+	   
+		 //Flr1 == 1; Flr2 == 1; Flr3 == 1; Flr4 == 1;
+		 //segout = 7'b1111110;
+		 
+		 end
+		 
+endmodule
+
+
+
+module datapath (Led1, Led2, Led3, Led4, sevseg, Flr1, Flr2, Flr3, Flr4, segout, clock, reset);
+  
+  output reg Led1, Led2, Led3, Led4; 
+  output reg [0:6] sevseg;
+
+  input wire Flr1, Flr2, Flr3, Flr4, clock, reset;
+  
+  input wire [0:6] segout;
+  
+always @ (posedge clock or negedge reset) begin
+  if (reset == 0) begin
+  sevseg <= 7'b0000001;
+  Led1 <=1;
+  Led2 <=1;
+  Led3 <=1;
+  Led4 <=1;
+  
+  end
+  
+  else begin
+  
+ if( Flr1 ) Led1 <= 1;
+ if( Flr2 ) Led2 <= 1;
+ if( Flr3 ) Led3 <= 1;
+ if( Flr4 ) Led4 <= 1;
+ sevseg <= segout;
+ 
+ end
+    
+  
+ end
+   
+endmodule
+
+
+
+module slowclock (clock, clock_50MHz, reset);
+  
+input wire reset;
+input wire clock_50MHz;
+output reg clock;
+reg [26:0] counter_50M;
+
+
+ //Create a 1Hz clock from the 50MHz oscillator that's on the eval board
+always @ (posedge clock_50MHz or negedge reset)
+ if (reset == 1'b0) begin
+ clock <= 0;
+ counter_50M <= 0;
+ end
+ 
+ else begin
+ 
+ if (counter_50M == 50000000) begin
+ counter_50M <= 0;
+ clock <= ~clock;
+ 
+ end else begin
+	counter_50M <= counter_50M + 1;
+	clock <= clock;
+  end
+ 
+ end
+ 
+endmodule
+
+module tb_Elevator_Controller_System;
+
+ reg p;
+ reg q;
+ reg r;
+ reg s;
+reg clock, reset;
+ 
+ wire detector_out;
+
+Elevator_Controller_System (.p(p),.q(q), .r(r), .s(s), .clock(clock), .reset(reset), .Led1(Led1), .Led2(Led2), .Led3(Led3), .Led4(Led4), .direction(direction));
+ 
+ initial begin
+ clock = 0;
+ forever #5 clock = ~clock;
+ end 
+ initial begin
+  
+  p=0;q=1; r=0; s=0; #20;
+  
+  reset = 0; #20;
+  
+  p=1;q=0; r=1; s=0; #40;
+  
+  
+ 
+ end
+      
+endmodule

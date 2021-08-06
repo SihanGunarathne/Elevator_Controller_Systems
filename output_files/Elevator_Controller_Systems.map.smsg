@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at Elevator_Controller_Systems.v(59): always construct contains both blocking and non-blocking assignments File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 59
+Warning (10268): Verilog HDL information at Elevator_Controller_Systems.v(202): always construct contains both blocking and non-blocking assignments File: G:/6th Semester/HDL/Mini project/Elevator_Controller_Systems/Elevator_Controller_Systems.v Line: 202
